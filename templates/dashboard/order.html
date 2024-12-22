@@ -1,0 +1,47 @@
+{% extends "partial/base.html" %}
+{% block title %}Order Page{% endblock %}
+
+{% block content %}
+
+{% include "partial/topnav.html" %}
+
+<!--Table-->
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-8">
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+                        <th scope="col">ID</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">OrderQty</th>
+                        <th scope="col">Product Price</th>
+                        <th scope="col">Totel Price</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Order By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in orders %}
+                    <tr>
+                        <th scope="row"> {{item.id}} </th>
+                        <td>{{item.product}}</td>
+                        <td>{{item.orderQty}}</td>
+                        <td>{{item.product.prixUnit}}</td>
+                        <td>{{item.total_price}}</td>
+                        <td>{{item.date|date:"M d, Y"}}</td>
+                        <td>{{item.staff.username}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<!--End Table-->
+{% endblock %}

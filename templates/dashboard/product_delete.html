@@ -1,0 +1,26 @@
+{% extends "partial/base.html" %}
+{% block title %}Define Page{% endblock %}
+{% include "partial/topnav.html" %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+                <div class="border bg-white p-3">
+                    <h3>Delete Iteme</h3>
+                    <hr>
+                    <div class="alert alert-danger">
+                        </h4>Are You sure you want to delete?</h4>
+                    </div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{form}}
+                        <input class="btn btn-danger" type="submit" value="Confirm">
+                        <a class="btn btn-secondary" href="{% url "dashboard-products" %}">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
